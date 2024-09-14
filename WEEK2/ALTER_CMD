@@ -1,0 +1,6 @@
+ALTER TABLE students
+ADD COLUMN date_of_birth DATE;
+ALTER TABLE students
+MODIFY COLUMN student_name VARCHAR(150);
+ALTER TABLE students
+DROP COLUMN date_of_birth;
