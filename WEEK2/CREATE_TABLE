@@ -1,0 +1,7 @@
+CREATE TABLE students (
+    student_name VARCHAR(100),
+    roll_no INT PRIMARY KEY,
+    phone_number VARCHAR(15) UNIQUE,
+    email VARCHAR(100),
+    marks_percentage DECIMAL(5, 2)
+);
