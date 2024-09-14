@@ -1,0 +1,70 @@
+CREATE TABLE students (
+    student_name VARCHAR(100),
+    roll_no INT PRIMARY KEY,
+    phone_number VARCHAR(15) UNIQUE,
+    email VARCHAR(100),
+    marks_percentage DECIMAL(5, 2)
+);
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100)
+);
+
+ALTER TABLE students
+ADD COLUMN date_of_birth DATE;
+
+ALTER TABLE students
+MODIFY COLUMN student_name VARCHAR(150);
+
+ALTER TABLE students
+DROP COLUMN date_of_birth;
+
+INSERT INTO students (student_name, roll_no, phone_number, email, marks_percentage)
+VALUES
+('Hemanth', 10001, '555-0001', 'hemanth@gmail.com', 75.00),
+('Puneeth', 10002, '555-0002', 'puneeth@gmail.com', 82.50),
+('Sarath', 10003, '555-0003', 'sarath@gmail.com', 88.00),
+('Naveen', 10004, '555-0004', 'naveen@gmail.com', 91.00),
+('Vivek', 10005, '555-0005', 'vivek@gmail.com', 79.50);
+
+INSERT INTO courses (course_id, course_name)
+VALUES
+(1, 'Mathematics'),
+(2, 'Science'),
+(3, 'History');
+
+UPDATE students
+SET marks_percentage = 90.00
+WHERE roll_no = 10001;
+
+DELETE FROM students
+WHERE roll_no = 10005;
+
+SELECT student_name, roll_no, phone_number, email, marks_percentage
+FROM students
+WHERE student_name LIKE 'S%'
+ORDER BY marks_percentage DESC;
+
+CREATE TABLE student_course (
+    roll_no INT,
+    course_id INT,
+    FOREIGN KEY (roll_no) REFERENCES students(roll_no),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+INSERT INTO student_course (roll_no, course_id)
+VALUES
+(10001, 1),
+(10002, 2),
+(10003, 3),
+(10004, 1);
+
+SELECT s.student_name, s.email, c.course_name
+FROM students s
+INNER JOIN student_course sc ON s.roll_no = sc.roll_no
+INNER JOIN courses c ON sc.course_id = c.course_id;
+
+DROP TABLE student_course;
+DROP TABLE courses;
+DROP TABLE students;
