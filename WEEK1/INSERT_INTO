@@ -1,0 +1,7 @@
+INSERT INTO students (student_name, roll_no, phone_number, email, marks_percentage)
+VALUES
+('Hemanth', 10001, '555-0001', 'hemanth@gmail.com', 75.00),
+('Puneeth', 10002, '555-0002', 'puneeth@gmail.com', 82.50),
+('Sarath', 10003, '555-0003', 'sarath@gmail.com', 88.00),
+('Naveen', 10004, '555-0004', 'naveen@gmail.com', 91.00),
+('Vivek', 10005, '555-0005', 'vivek@gmail.com', 79.50);
