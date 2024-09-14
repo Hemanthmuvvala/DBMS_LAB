@@ -1,0 +1,5 @@
+
+SELECT s.student_name, s.email, c.course_name
+FROM students s
+INNER JOIN student_course sc ON s.roll_no = sc.roll_no
+INNER JOIN courses c ON sc.course_id = c.course_id;
