@@ -1,0 +1,2 @@
+SELECT student_name, roll_no, phone_number, email, marks_percentage
+FROM students;
