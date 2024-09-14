@@ -1,0 +1,42 @@
+
+CREATE TABLE students (
+    student_name VARCHAR(100),
+    roll_no INT PRIMARY KEY,
+    phone_number VARCHAR(15) UNIQUE,
+    email VARCHAR(100),
+    marks_percentage DECIMAL(5, 2)
+);
+
+
+ALTER TABLE students
+ADD COLUMN date_of_birth DATE;
+
+
+ALTER TABLE students
+MODIFY COLUMN student_name VARCHAR(150);
+
+
+ALTER TABLE students
+DROP COLUMN date_of_birth;
+
+
+INSERT INTO students (student_name, roll_no, phone_number, email, marks_percentage)
+VALUES
+('Hemanth', 10001, '555-0001', 'hemanth@gmail.com', 75.00),
+('Puneeth', 10002, '555-0002', 'puneeth@gmail.com', 82.50),
+('Sarath', 10003, '555-0003', 'sarath@gmail.com', 88.00),
+('Naveen', 10004, '555-0004', 'naveen@gmail.com', 91.00),
+('Vivek', 10005, '555-0005', 'vivek@gmail.com', 79.50);
+
+
+UPDATE students
+SET marks_percentage = 90.00
+WHERE roll_no = 10001;
+
+
+DELETE FROM students
+WHERE roll_no = 10005;
+
+
+SELECT student_name, roll_no, phone_number, email, marks_percentage
+FROM students;
