@@ -1,0 +1,40 @@
+CREATE TABLE students (
+    roll_no INT PRIMARY KEY,
+    student_name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100)
+);
+
+CREATE TABLE student_course (
+    roll_no INT,
+    course_id INT,
+    FOREIGN KEY (roll_no) REFERENCES students(roll_no),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+INSERT INTO students (roll_no, student_name, email)
+VALUES
+(10001, 'Hemanth', 'hemanth@gmail.com'),
+(10002, 'Puneeth', 'puneeth@gmail.com'),
+(10003, 'Sarath', 'sarath@gmail.com');
+
+INSERT INTO courses (course_id, course_name)
+VALUES
+(1, 'Mathematics'),
+(2, 'Science'),
+(3, 'History');
+
+INSERT INTO student_course (roll_no, course_id)
+VALUES
+(10001, 1),
+(10002, 2),
+(10003, 3);
+
+SELECT s.student_name, c.course_name
+FROM students s
+NATURAL JOIN student_course sc
+NATURAL JOIN courses c;
