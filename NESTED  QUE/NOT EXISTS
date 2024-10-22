@@ -1,0 +1,7 @@
+SELECT ename 
+FROM employee e
+WHERE not EXISTS (
+    SELECT 1 
+    FROM branch b 
+    WHERE e.bname = b.bname
+);
