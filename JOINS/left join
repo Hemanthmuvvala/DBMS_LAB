@@ -1,0 +1,3 @@
+select e.employee,e.branch,b.yoe
+from employee e
+left outer join branch b on e.branch=b.bname;
