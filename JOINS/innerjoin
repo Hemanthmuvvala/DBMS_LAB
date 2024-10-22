@@ -1,0 +1,4 @@
+select e.ename,e.branch;
+from employee e
+inner join branch b on e.branch=b.bname
+where b.yoe>2000;
