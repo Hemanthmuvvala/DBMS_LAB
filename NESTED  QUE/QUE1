@@ -1,0 +1,29 @@
+CREATE TABLE employee (
+    eid INT PRIMARY KEY,
+    ename VARCHAR(100),
+    age INT,
+    salary DECIMAL(10),
+    bname VARCHAR(100)
+);
+
+CREATE TABLE branch (
+    bname VARCHAR(100) PRIMARY KEY,
+    yoe INT
+);
+INSERT INTO employee (eid, ename, age, salary, bname) VALUES (21, 'Joe', 28, 20000, 'IT');
+INSERT INTO employee (eid, ename, age, salary, bname) VALUES (22, 'Max', 30, 40000, 'CSE');
+INSERT INTO employee (eid, ename, age, salary, bname) VALUES (23, 'Ram', 27, 30000, 'ECE');
+INSERT INTO employee (eid, ename, age, salary, bname) VALUES (24, 'Tej', 32, 25000, 'IT');
+INSERT INTO employee (eid, ename, age, salary, bname) VALUES (25, 'Hemanth', 22, 90000, 'CSE');
+INSERT INTO branch (bname, yoe) VALUES ('CSE', 2005);
+INSERT INTO branch (bname, yoe) VALUES ('IT', 2006);
+INSERT INTO branch (bname, yoe) VALUES ('ECE', 2000);
+INSERT INTO branch (bname, yoe) VALUES ('EEE', 2008);
+select bname
+from employee
+where bname ='CSE'
+group by bname
+having avg(salary)>=all(select avg(salary)
+                       from employee
+                       group by bname)
+
