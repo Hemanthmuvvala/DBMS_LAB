@@ -1,0 +1,3 @@
+select bname from branch;
+except
+select distinct bname from employee;
