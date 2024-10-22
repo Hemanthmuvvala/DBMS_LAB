@@ -1,0 +1,6 @@
+
+select 
+*from employee
+where bname not in (select bname from branch);
+
+
