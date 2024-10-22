@@ -1,0 +1,3 @@
+select e.ename,e.bname,b.yoe,e.bname, b.bname
+from employee e
+full outer join branch b on e.bname=b.bname;
