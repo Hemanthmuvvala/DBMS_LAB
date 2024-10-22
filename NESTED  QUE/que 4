@@ -1,0 +1,2 @@
+select*from employee
+where age<(select min(age) from employee);
