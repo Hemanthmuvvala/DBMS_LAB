@@ -1,0 +1,8 @@
+select ename from employee
+where bname='cse';
+union
+select ename from employee where bname='IT';
+select ename from employee
+where bname='cse';
+intersect
+select ename from employee where bname='ECE';
